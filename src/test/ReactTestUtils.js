@@ -178,6 +178,10 @@ var ReactTestUtils = {
    * @return {array} an array of all the matches.
    */
   scryRenderedDOMComponentsWithClass: function(root, classNames) {
+    invariant(
+      ReactTestUtils.isCompositeComponent(root),
+      'scryRenderedDOMComponentsWithClass: first argument must be an instance of ReactComponent'
+    );
     if (!Array.isArray(classNames)) {
       classNames = classNames.split(/\s+/);
     }

@@ -324,6 +324,14 @@ describe('ReactTestUtils', function() {
     expect(scryResults5.length).toBe(0);
   });
 
+  it('throws on scryRenderedDOMComponentsWithClass with non-component', function() {
+    try {
+      ReactTestUtils.scryRenderedDOMComponentsWithClass();
+    } catch (e) {
+      expect(e.message).toBe('scryRenderedDOMComponentsWithClass: first argument must be an instance of ReactComponent');
+    }
+  });
+
   it('traverses children in the correct order', function() {
     var Wrapper = React.createClass({
       render: function() {
